@@ -1,0 +1,205 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>酸鹼觀察 × 科普閱讀統整任務</title>
+<style>
+:root{--blue:#079ee0;--blue2:#087eb7;--ink:#173445;--muted:#607988;--paper:#f5fbff;--line:#d5e6ef;--mint:#dff8ef;--yellow:#fff4cc;--rose:#ffe3df;--lav:#ece9ff;--white:#fff;--shadow:0 12px 30px rgba(11,76,111,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(180deg,#eaf8ff 0,#f9fcff 420px,#f7fbfd 100%);font-family:system-ui,-apple-system,"Noto Sans TC","Microsoft JhengHei",sans-serif;color:var(--ink);line-height:1.65}
+button,input,select,textarea{font:inherit}button{cursor:pointer}a{color:var(--blue2)}.wrap{max-width:1180px;margin:0 auto;padding:22px 18px 60px}
+.hero{position:relative;overflow:hidden;border-radius:28px;padding:30px 32px 28px;background:linear-gradient(122deg,#00a5e6,#0876b6);color:white;box-shadow:var(--shadow)}
+.hero:after{content:"";position:absolute;width:300px;height:300px;right:-72px;top:-100px;border:2px solid rgba(255,255,255,.24);border-radius:50%;box-shadow:0 0 0 28px rgba(255,255,255,.05),0 0 0 58px rgba(255,255,255,.04)}
+.eyebrow{font-weight:800;letter-spacing:.12em;font-size:.85rem;opacity:.92}.hero h1{font-size:clamp(1.8rem,4vw,3rem);line-height:1.2;margin:9px 0 12px;max-width:760px}.hero p{margin:0;max-width:760px;font-size:1.05rem;color:#e9f8ff}.hero .hero-tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px}.tag{border:1px solid rgba(255,255,255,.42);background:rgba(255,255,255,.14);padding:5px 11px;border-radius:999px;font-size:.88rem}
+.steps{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:10px;margin:18px 0 20px}.step{border:1px solid var(--line);background:white;border-radius:16px;padding:12px 14px;text-align:left;color:var(--muted);display:flex;gap:10px;align-items:center;box-shadow:0 4px 12px rgba(12,80,110,.03)}.step .num{display:grid;place-items:center;width:34px;height:34px;border-radius:11px;background:#edf7fc;color:#36708d;font-weight:900;flex-shrink:0}.step strong{display:block;color:var(--ink);font-size:.96rem}.step small{display:block;font-size:.75rem}.step.active{border-color:var(--blue);background:#e9f8ff;box-shadow:0 0 0 2px #ccefff}.step.active .num{background:var(--blue);color:#fff}.step.done .num{background:#daf8eb;color:#117354}
+.panel{display:none;background:white;border:1px solid var(--line);border-radius:22px;box-shadow:var(--shadow);padding:clamp(18px,3vw,30px);margin-bottom:18px}.panel.active{display:block;animation:rise .25s ease}@keyframes rise{from{opacity:.45;transform:translateY(5px)}to{opacity:1;transform:none}}
+.section-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px}.icon-box{display:grid;place-items:center;width:50px;height:50px;border-radius:15px;background:#e5f7ff;font-size:1.6rem;flex-shrink:0}.section-head h2{font-size:clamp(1.35rem,3vw,1.8rem);margin:0 0 3px}.section-head p{margin:0;color:var(--muted)}
+.callout{border-left:5px solid var(--blue);background:#f0faff;padding:13px 16px;border-radius:0 14px 14px 0;margin:14px 0}.callout strong{color:#075e8a}.small{font-size:.89rem;color:var(--muted)}.grid2{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.field{display:flex;flex-direction:column;gap:6px}.field label,.field .label{font-weight:800;font-size:.92rem}.field input,.field select,.field textarea{width:100%;border:1px solid #c7dce7;background:#fbfdff;padding:10px 12px;border-radius:11px;color:var(--ink);outline:none}.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--blue);box-shadow:0 0 0 3px #d5f2ff}.field textarea{min-height:88px;resize:vertical}.field input::placeholder,.field textarea::placeholder{color:#9aadb7}
+.toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin:15px 0}.btn{border:0;border-radius:12px;padding:10px 15px;font-weight:800;transition:.15s transform,.15s opacity}.btn:hover{transform:translateY(-1px)}.primary{background:var(--blue);color:white}.secondary{background:#e6f5fc;color:#075e8a;border:1px solid #c7eaf8}.outline{background:white;border:1px solid #b7d1df;color:#31596b}.softdanger{background:#fff0ed;color:#9b4032;border:1px solid #ffd3cb}.btnrow{display:flex;flex-wrap:wrap;gap:9px}.navrow{display:flex;justify-content:space-between;gap:10px;border-top:1px solid var(--line);padding-top:18px;margin-top:24px}
+.record-table-wrap{overflow-x:auto;border:1px solid var(--line);border-radius:15px;margin:12px 0}.record-table{width:100%;border-collapse:collapse;min-width:850px}.record-table th{background:#079ee0;color:white;text-align:left;padding:12px 10px;font-size:.9rem}.record-table td{padding:10px;border-top:1px solid var(--line);vertical-align:top}.record-table tr:nth-child(even) td{background:#f7fbfd}.record-table input,.record-table select{width:100%;min-width:105px;border:1px solid #cfdee6;border-radius:8px;padding:8px;background:white}.record-table .sample-name{min-width:145px}.record-table .delete-row{border:1px solid #ffd7d1;background:#fff1ef;color:#a54c3d;border-radius:8px;padding:5px 8px}
+.data-chip{display:inline-flex;align-items:center;gap:6px;background:#f0f7fb;border:1px solid #d5e6ef;border-radius:999px;padding:4px 9px;font-size:.82rem;color:#3c6173;margin:3px 4px 3px 0}.dot{width:11px;height:11px;border-radius:50%;display:inline-block;border:1px solid #aebdc5}.red{background:#e84b52}.orange{background:#ff9b38}.yellow{background:#ffe174}.yellowgreen{background:#b7d958}.green{background:#38b978}.teal{background:#3bc6bd}.blue{background:#367ce9}.purple{background:#8a55d9}.gray{background:#c6ced3}
+.empty{padding:20px;background:#f8fbfd;border:1px dashed #b7d3e2;border-radius:14px;text-align:center;color:var(--muted)}
+.article{background:linear-gradient(140deg,#f4fbff,#f7fffc);border:1px solid #d5ecf4;border-radius:18px;padding:20px 22px;margin:12px 0 18px}.article h3{margin:0 0 10px;font-size:1.25rem}.article p{margin:10px 0}.key{background:#ffefb2;border-radius:5px;padding:1px 4px;font-weight:800}.article-foot{padding-top:10px;border-top:1px solid #d6e8ef;color:#517182;font-size:.87rem}
+.choice-list{display:grid;gap:9px;margin-top:10px}.choice{display:flex;gap:10px;align-items:flex-start;border:1px solid var(--line);padding:12px 13px;border-radius:12px;background:#fbfdff;cursor:pointer}.choice:hover{background:#f2fbff}.choice input{margin-top:5px;accent-color:var(--blue);flex-shrink:0}.choice.correct{border-color:#64cba7;background:#effcf6}.choice.wrong{border-color:#ecb2a8;background:#fff5f3}.feedback{display:none;margin-top:10px;padding:11px 13px;border-radius:11px}.feedback.show{display:block}.feedback.good{background:#e9faf2;color:#146b4c}.feedback.try{background:#fff5db;color:#805d11}
+.organizer{display:grid;grid-template-columns:1.1fr 1fr 1fr;gap:12px;align-items:stretch;margin-top:12px}.org-card{padding:15px;border-radius:15px;border:1px solid #d6e7ef;background:#fbfdff}.org-card h4{margin:0 0 8px;font-size:1rem}.org-card.core{background:#eaf8ff;border:2px solid #8fd8f7}.org-card.details{background:#f1fcf7}.org-card.evidence{background:#fff9e8}.org-card textarea{width:100%;min-height:95px;border:1px solid #c7dce7;border-radius:10px;padding:10px;resize:vertical;background:white}
+.quiz-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.quiz-card{border:1px solid var(--line);border-radius:15px;padding:15px;background:#fcfeff}.quiz-card h4{margin:0 0 7px}.quiz-card select{width:100%;padding:9px;border:1px solid #c7dce7;border-radius:9px;background:white}
+.notebook{border:1px solid #c7dce7;border-radius:16px;overflow:hidden;background:white}.notebook .note-head{background:#078fc9;color:white;padding:13px 17px;font-weight:900;display:flex;justify-content:space-between;gap:10px}.notebook .note-body{padding:18px 20px;background:repeating-linear-gradient(to bottom,white 0,white 31px,#d7e8ef 32px)}.note-body h3{margin:5px 0 6px;font-size:1.05rem}.note-body p{margin:0 0 13px;white-space:pre-wrap}.note-body .note-table{width:100%;border-collapse:collapse;background:rgba(255,255,255,.85);font-size:.88rem;margin:6px 0 16px}.note-table th,.note-table td{border:1px solid #b6cbd6;padding:7px;text-align:left;vertical-align:top}.note-table th{background:#e8f7ff}.note-section{border-bottom:1px dashed #a8c3d1;padding-bottom:6px;margin-bottom:12px}
+.sticky-tip{position:sticky;bottom:10px;z-index:5;margin-top:18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border:1px solid var(--line);border-radius:16px;padding:10px 12px;box-shadow:0 8px 24px rgba(13,70,100,.1)}.save-status{font-size:.85rem;color:#497083}.footer-note{margin:24px 4px 0;color:#6b8593;font-size:.83rem;text-align:center}.hide{display:none!important}
+@media(max-width:800px){.steps{grid-template-columns:repeat(2,minmax(0,1fr))}.grid3{grid-template-columns:1fr}.organizer{grid-template-columns:1fr}.quiz-grid{grid-template-columns:1fr}.hero{padding:25px 22px}.record-table{min-width:800px}}
+@media(max-width:480px){.wrap{padding:12px 10px 38px}.steps{gap:7px}.step{padding:9px 8px;gap:7px}.step .num{width:28px;height:28px}.step small{display:none}.panel{padding:16px;border-radius:17px}.section-head{gap:9px}.icon-box{width:42px;height:42px}.grid2{grid-template-columns:1fr}.navrow .btn{flex:1}.hero h1{font-size:1.85rem}}
+@media print{body{background:white}.wrap{max-width:100%;padding:0}.hero,.steps,.panel:not(#panel4),.sticky-tip,.footer-note,.note-head .not-print{display:none!important}#panel4{display:block!important;border:0;box-shadow:none;padding:0;margin:0}.notebook{border:1px solid #333}.notebook .note-head{background:#ddd!important;color:#111!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.notebook .note-body{background:white!important}.note-table th{background:#eee!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}.panel.active{animation:none}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header class="hero">
+  <div class="eyebrow">SCIENCE READING LAB · 酸鹼鹽單元</div>
+  <h1>酸鹼觀察 × 科普閱讀統整任務</h1>
+  <p>先記下試紙真正呈現的顏色，再讀科普短文找重點，最後把「觀察、證據、推論」整理成自己的自然筆記。</p>
+  <div class="hero-tags"><span class="tag">🔎 觀察紀錄</span><span class="tag">📖 科普閱讀</span><span class="tag">🧠 主旨與細節</span><span class="tag">✍️ 筆記統整</span></div>
+</header>
+<nav class="steps" aria-label="任務進度">
+  <button class="step active" data-step="1"><span class="num">01</span><span><strong>觀察紀錄</strong><small>忠實記錄顏色</small></span></button>
+  <button class="step" data-step="2"><span class="num">02</span><span><strong>科普閱讀</strong><small>找主旨與細節</small></span></button>
+  <button class="step" data-step="3"><span class="num">03</span><span><strong>整理推論</strong><small>觀察成為證據</small></span></button>
+  <button class="step" data-step="4"><span class="num">04</span><span><strong>我的筆記</strong><small>預覽、複製、列印</small></span></button>
+</nav>
+
+<section class="panel active" id="panel1">
+  <div class="section-head"><div class="icon-box">🧪</div><div><h2>第一站｜建立酸鹼觀察紀錄</h2><p>先看結果、再做解釋。請記錄實驗中實際看到的顏色，不要為了符合預期而修改。</p></div></div>
+  <div class="callout"><strong>觀察小提醒：</strong>「試紙呈現橘色」是觀察；「這杯溶液是酸性」是根據指示劑結果做出的推論。兩者要分清楚。</div>
+  <div class="grid2">
+    <div class="field"><label for="question">本次探究問題</label><input id="question" value="不同生活溶液遇到酸鹼指示劑時，會出現什麼變化？"></div>
+    <div class="field"><label for="observer">紀錄者／組別（可不填）</label><input id="observer" placeholder="例如：第 3 組、座號……"></div>
+  </div>
+  <div class="toolbar"><div><strong>我的試紙觀察表</strong><div class="small">依照你的實際實驗增減樣本。三種試紙的結果都可以自行選擇或修改。</div></div><button class="btn secondary" id="addRow">＋ 新增一種溶液</button></div>
+  <div class="record-table-wrap"><table class="record-table"><thead><tr><th>測試溶液</th><th>廣用試紙<br><small>呈現什麼顏色？</small></th><th>藍色石蕊試紙<br><small>測試後顏色</small></th><th>紅色石蕊試紙<br><small>測試後顏色</small></th><th>初步判斷</th><th>移除</th></tr></thead><tbody id="recordRows"></tbody></table></div>
+  <div class="small">顏色選項只是方便記錄的清單。若顏色和選項不同，請選「其他／不確定」，並在下一欄補充或直接記在筆記中。廣用試紙的判讀請以課堂使用試紙附帶的色卡為準。</div>
+  <div class="field" style="margin-top:15px"><label for="extraObservation">其他觀察（選填）</label><textarea id="extraObservation" placeholder="例如：同一種溶液重複測試兩次，顏色是否相同？有沒有看不清楚或結果不一致的地方？"></textarea></div>
+  <div class="navrow"><span class="small">完成至少 2 種溶液的觀察後，進入科普閱讀。</span><button class="btn primary" data-next="2">下一步：讀科普短文 →</button></div>
+</section>
+
+<section class="panel" id="panel2">
+  <div class="section-head"><div class="icon-box">📚</div><div><h2>第二站｜像科學家一樣閱讀</h2><p>閱讀時把背景知識和自己的觀察連起來，找出文章主要概念，再用細節支持理解。</p></div></div>
+  <div class="grid2">
+    <div class="field"><label for="prior">閱讀前｜我原本知道／猜想……</label><textarea id="prior" placeholder="我猜不同溶液……因為……"></textarea></div>
+    <div class="field"><label>閱讀任務｜請留意這些關鍵詞</label><div><span class="data-chip">指示劑</span><span class="data-chip">酸性</span><span class="data-chip">鹼性</span><span class="data-chip">中性</span><span class="data-chip">顏色變化</span></div><p class="small">讀完後，試著用自己的話解釋其中一個詞。</p></div>
+  </div>
+  <article class="article">
+    <h3>科普短文｜為什麼試紙會變色？</h3>
+    <p>有些液體看起來很相似，光用眼睛不容易知道它們的酸鹼性。科學家會使用<strong>酸鹼指示劑</strong>幫助判斷。不同指示劑遇到不同酸鹼性的溶液，可能呈現不同顏色，因此顏色變化可以成為判斷的線索。</p>
+    <p><strong>石蕊試紙</strong>有紅色和藍色兩種。一般情況下，酸性溶液會使藍色石蕊試紙轉紅；鹼性溶液會使紅色石蕊試紙轉藍。中性溶液通常不會讓紅、藍石蕊試紙彼此變色。測試時，要一起觀察兩種試紙，而不是只看其中一張。</p>
+    <p><strong>廣用試紙</strong>會用顏色變化呈現溶液酸鹼性的範圍，通常需要對照產品提供的色卡判讀。常見的廣用指示色卡中，偏酸的顏色可能偏紅、橘或黃，接近中性常見綠色，偏鹼可能偏藍或紫；但實際顏色要以課堂使用的色卡為準。</p>
+    <p>做科學紀錄時，要先分清楚三件事：第一，<strong>觀察到什麼</strong>；第二，哪些結果能當作<strong>證據</strong>；第三，根據證據可以做出什麼<strong>推論</strong>。如果不同試紙的結果互相矛盾，應重新確認操作、試紙狀態和色卡，而不是硬把結果分類。</p>
+    <div class="article-foot">閱讀策略：抓主要概念、找細節、比對觀察紀錄，最後用自己的話摘要。文章說明的是一般判讀原則，實驗紀錄仍以你實際看到的結果為主。</div>
+  </article>
+  <div class="field"><label for="vocab">讀完後｜我用自己的話解釋一個關鍵詞</label><textarea id="vocab" placeholder="例如：我認為「酸鹼指示劑」是……"></textarea></div>
+  <div style="margin-top:20px"><h3 style="margin-bottom:5px">小挑戰｜讀懂主旨</h3><p class="small">以下哪一句最能概括整篇短文？</p>
+    <div class="choice-list" id="mainIdeaChoices">
+      <label class="choice"><input type="radio" name="mainIdea" value="a"><span>每種液體只要看起來相同，就有相同的酸鹼性。</span></label>
+      <label class="choice"><input type="radio" name="mainIdea" value="b"><span>透過不同指示劑的顏色變化與色卡，可以取得判斷溶液酸鹼性的線索；結論要依據觀察證據。</span></label>
+      <label class="choice"><input type="radio" name="mainIdea" value="c"><span>只要測量廣用試紙就不需要觀察石蕊試紙。</span></label>
+    </div>
+    <div class="toolbar"><button class="btn secondary" id="checkMain">檢查我的答案</button><div id="mainFeedback" class="feedback" role="status"></div></div>
+  </div>
+  <div class="field"><label for="articleSummary">閱讀後｜用一句話摘要短文</label><textarea id="articleSummary" placeholder="這篇短文主要告訴我……"></textarea></div>
+  <div class="navrow"><button class="btn outline" data-prev="1">← 回到觀察紀錄</button><button class="btn primary" data-next="3">下一步：整理主旨與證據 →</button></div>
+</section>
+
+<section class="panel" id="panel3">
+  <div class="section-head"><div class="icon-box">🧠</div><div><h2>第三站｜把閱讀重點和觀察連起來</h2><p>運用「主要概念＋細節」組織圖，整理文章與實驗中的重要訊息，不要整段照抄。</p></div></div>
+  <div class="callout"><strong>摘要三步驟</strong><br>① 用一句話說出主旨。　② 選擇 2～3 個重要細節。　③ 回到自己的實驗表，找出能支持推論的觀察證據。</div>
+  <div class="organizer">
+    <div class="org-card core"><h4>🎯 主要概念｜這段最重要的是？</h4><textarea id="coreIdea" placeholder="用自己的話寫 1 句，不必抄完整原文。"></textarea></div>
+    <div class="org-card details"><h4>🧩 重要細節｜哪些資訊支持主旨？</h4><textarea id="detailIdeas" placeholder="細節 1：……\n細節 2：……\n細節 3：……"></textarea></div>
+    <div class="org-card evidence"><h4>🔎 觀察證據｜我的紀錄提供什麼線索？</h4><textarea id="evidenceIdeas" placeholder="例如：樣本 A 的藍色石蕊變成……，紅色石蕊……，所以我推論……"></textarea></div>
+  </div>
+  <div style="margin-top:20px"><h3 style="margin-bottom:8px">證據判讀小練習</h3><div class="quiz-grid">
+    <div class="quiz-card"><h4>1. 藍色石蕊試紙轉紅，通常代表什麼線索？</h4><select id="quizLitmus"><option value="">請選擇</option><option value="acid">偏酸性</option><option value="base">偏鹼性</option><option value="unknown">不必再看其他證據</option></select></div>
+    <div class="quiz-card"><h4>2. 廣用試紙顏色不在清單裡，最好的做法是？</h4><select id="quizPaper"><option value="">請選擇</option><option value="guess">挑最接近的顏色，直接下結論</option><option value="record">記錄實際顏色，對照試紙色卡並再確認</option><option value="ignore">不記錄這個結果</option></select></div>
+  </div><div class="toolbar"><button class="btn secondary" id="checkQuiz">檢查判讀</button><div id="quizFeedback" class="feedback" role="status"></div></div></div>
+  <div class="grid2" style="margin-top:18px">
+    <div class="field"><label for="conclusion">我的結論｜根據觀察，我發現……</label><textarea id="conclusion" placeholder="我發現不同溶液會讓指示劑呈現……，其中……的觀察結果支持我的判斷。"></textarea></div>
+    <div class="field"><label for="nextQuestion">我還想確認／下次想再研究……</label><textarea id="nextQuestion" placeholder="例如：如果溶液顏色很深，試紙結果會不會比較難判斷？"></textarea></div>
+  </div>
+  <div class="navrow"><button class="btn outline" data-prev="2">← 回到科普閱讀</button><button class="btn primary" data-next="4">下一步：生成我的筆記 →</button></div>
+</section>
+
+<section class="panel" id="panel4">
+  <div class="section-head"><div class="icon-box">📓</div><div><h2>第四站｜我的自然筆記</h2><p>網站會把你輸入的觀察表、閱讀摘要和結論整理在一起。請再檢查一次，確認內容符合自己的實驗結果。</p></div></div>
+  <div class="toolbar"><div><strong>筆記預覽</strong><div class="small">可列印、另存 PDF、複製文字或下載文字檔。</div></div><div class="btnrow"><button class="btn secondary" id="refreshNote">↻ 更新筆記</button><button class="btn outline" id="copyNote">複製文字</button><button class="btn outline" id="downloadNote">下載 .txt</button><button class="btn primary" id="printNote">列印／另存 PDF</button></div></div>
+  <div class="notebook" id="notebookPreview"><div class="note-head"><span>自然筆記｜酸鹼指示劑觀察與科普閱讀</span><span id="noteDate"></span></div><div class="note-body" id="noteBody"></div></div>
+  <div class="callout" style="margin-top:18px"><strong>交給老師前的自我檢查</strong><br><label style="display:block;margin-top:7px"><input type="checkbox" class="selfcheck"> 我記錄的是實際看到的顏色，不是猜測的顏色。</label><label style="display:block"><input type="checkbox" class="selfcheck"> 我的摘要寫出主要概念，細節沒有整段照抄。</label><label style="display:block"><input type="checkbox" class="selfcheck"> 我的結論有指出至少一項觀察證據。</label><label style="display:block"><input type="checkbox" class="selfcheck"> 若結果不一致，我有註明需要再確認的地方。</label></div>
+  <div class="navrow"><button class="btn outline" data-prev="3">← 回去修改</button><button class="btn primary" id="startOver">完成，清空後再做一份</button></div>
+</section>
+
+<div class="sticky-tip"><div><strong>🧭 任務提醒</strong><div class="save-status" id="saveStatus">輸入內容會暫存在這台裝置的瀏覽器中。</div></div><div class="btnrow"><button class="btn outline" id="saveNow">儲存進度</button><button class="btn softdanger" id="resetAll">清除所有紀錄</button></div></div>
+<footer class="footer-note">設計依據：科普閱讀中的「主要概念與細節」圖形組織、提問與推論策略；將觀察結果、文本資訊與證據連結，作為學生整理筆記的鷹架。參考《讀＋科學：科學閱讀教學 36 問》第 21～22、44～47 頁。</footer>
+</div>
+<script>
+const $ = s => document.querySelector(s);
+const $$ = s => [...document.querySelectorAll(s)];
+let currentStep = 1;
+let nextRowId = 4;
+const colorOptions = [
+  ['','選擇顏色'],['紅色','紅色'],['橘色','橘色'],['黃色','黃色'],['黃綠色','黃綠色'],['綠色','綠色'],['藍綠色','藍綠色'],['藍色','藍色'],['紫色','紫色'],['其他／不確定','其他／不確定']
+];
+const litmusOptions = [['','選擇顏色'],['紅色','紅色'],['紫色／偏紫','紫色／偏紫'],['藍色','藍色'],['其他／不確定','其他／不確定']];
+const samples = ['檸檬汁','醋','糖水','肥皂水','小蘇打水','清水','其他溶液'];
+const rows = [
+ {id:1,sample:'檸檬汁',universal:'',blue:'',red:'',inference:''},
+ {id:2,sample:'糖水',universal:'',blue:'',red:'',inference:''},
+ {id:3,sample:'肥皂水',universal:'',blue:'',red:'',inference:''}
+];
+function optionsHTML(opts,selected=''){return opts.map(([v,t])=>`<option value="${escapeAttr(v)}" ${v===selected?'selected':''}>${escapeHTML(t)}</option>`).join('')}
+function escapeHTML(s=''){return String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]))}
+function escapeAttr(s=''){return escapeHTML(s)}
+function renderRows(){
+ const tb=$('#recordRows'); tb.innerHTML='';
+ rows.forEach((r,i)=>{
+   const tr=document.createElement('tr');
+   tr.innerHTML=`<td><input class="sample-name" aria-label="測試溶液" data-id="${r.id}" data-key="sample" value="${escapeAttr(r.sample)}" placeholder="溶液名稱"></td>
+   <td><select aria-label="廣用試紙顏色" data-id="${r.id}" data-key="universal">${optionsHTML(colorOptions,r.universal)}</select></td>
+   <td><select aria-label="藍色石蕊試紙顏色" data-id="${r.id}" data-key="blue">${optionsHTML(litmusOptions,r.blue)}</select></td>
+   <td><select aria-label="紅色石蕊試紙顏色" data-id="${r.id}" data-key="red">${optionsHTML(litmusOptions,r.red)}</select></td>
+   <td><select aria-label="初步判斷" data-id="${r.id}" data-key="inference">${optionsHTML([['','待判斷'],['酸性','酸性'],['中性','中性'],['鹼性','鹼性'],['需再確認','需再確認']],r.inference)}</select></td>
+   <td><button class="delete-row" data-delete="${r.id}" aria-label="移除此列">移除</button></td>`;
+   tb.appendChild(tr);
+ });
+ tb.querySelectorAll('[data-id]').forEach(el=>el.addEventListener('input',()=>{let r=rows.find(x=>x.id===Number(el.dataset.id));if(r){r[el.dataset.key]=el.value;saveProgress(false);if(el.dataset.key==='sample')refreshPreviewIfActive();}}));
+ tb.querySelectorAll('[data-delete]').forEach(el=>el.addEventListener('click',()=>{if(rows.length<=1){alert('至少保留一種溶液的觀察紀錄。');return}const i=rows.findIndex(r=>r.id===Number(el.dataset.delete));if(i>=0)rows.splice(i,1);renderRows();saveProgress();refreshPreviewIfActive()}));
+}
+function refreshPreviewIfActive(){if(currentStep===4)buildNote()}
+function addRow(sample=''){const s=sample||'新溶液';rows.push({id:nextRowId++,sample:s,universal:'',blue:'',red:'',inference:''});renderRows();saveProgress();}
+$('#addRow').addEventListener('click',()=>addRow());
+function goStep(n){currentStep=n;$$('.panel').forEach(p=>p.classList.toggle('active',p.id===`panel${n}`));$$('.step').forEach(b=>{const k=Number(b.dataset.step);b.classList.toggle('active',k===n);b.classList.toggle('done',k<n)});if(n===4)buildNote();window.scrollTo({top:0,behavior:'smooth'});saveProgress(false)}
+$$('[data-step]').forEach(b=>b.addEventListener('click',()=>goStep(Number(b.dataset.step))));
+$$('[data-next]').forEach(b=>b.addEventListener('click',()=>goStep(Number(b.dataset.next))));
+$$('[data-prev]').forEach(b=>b.addEventListener('click',()=>goStep(Number(b.dataset.prev))));
+$('#checkMain').addEventListener('click',()=>{
+ const ans=$('input[name="mainIdea"]:checked'); const fb=$('#mainFeedback');fb.className='feedback show '+(ans&&ans.value==='b'?'good':'try');fb.textContent=ans&&ans.value==='b'?'答對了！主旨說明了指示劑如何提供酸鹼判斷線索，也提醒結論應依證據。':'再試試看：主旨通常能概括全文，注意哪一個選項同時提到指示劑、顏色線索和證據。';
+ $$('#mainIdeaChoices .choice').forEach(c=>{c.classList.remove('correct','wrong');const inp=c.querySelector('input');if(ans&&inp.value===ans.value)c.classList.add(ans.value==='b'?'correct':'wrong');}); saveProgress();
+});
+$('#checkQuiz').addEventListener('click',()=>{const a=$('#quizLitmus').value,b=$('#quizPaper').value,fb=$('#quizFeedback');const good=a==='acid'&&b==='record';fb.className='feedback show '+(good?'good':'try');fb.textContent=good?'兩題都正確。石蕊試紙提供酸鹼線索，而廣用試紙應配合色卡判讀；結果不確定時要如實記錄與確認。':'再檢查一次：藍色石蕊轉紅通常是酸性線索；遇到色卡不明確時，記錄並確認比猜答案可靠。';saveProgress();});
+const textFields=['question','observer','extraObservation','prior','vocab','articleSummary','coreIdea','detailIdeas','evidenceIdeas','quizLitmus','quizPaper','conclusion','nextQuestion'];
+textFields.forEach(id=>{const el=document.getElementById(id); if(el) el.addEventListener('input',()=>{saveProgress(false);if(currentStep===4)buildNote()});});
+function colorName(v){return v||'尚未記錄'}
+function summarizeColors(){return rows.map(r=>`${r.sample||'未命名溶液'}：廣用試紙 ${colorName(r.universal)}；藍色石蕊 ${colorName(r.blue)}；紅色石蕊 ${colorName(r.red)}；我的初步判斷 ${colorName(r.inference)}`).join('\n')}
+function tableHTML(){if(!rows.length)return '<p>尚未新增觀察結果。</p>';return `<table class="note-table"><thead><tr><th>測試溶液</th><th>廣用試紙</th><th>藍色石蕊</th><th>紅色石蕊</th><th>初步判斷</th></tr></thead><tbody>${rows.map(r=>`<tr><td>${escapeHTML(r.sample||'未命名溶液')}</td><td>${escapeHTML(colorName(r.universal))}</td><td>${escapeHTML(colorName(r.blue))}</td><td>${escapeHTML(colorName(r.red))}</td><td>${escapeHTML(colorName(r.inference))}</td></tr>`).join('')}</tbody></table>`}
+function buildNote(){
+ const date=new Date();$('#noteDate').textContent=`日期：${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}`;
+ const summary=$('#articleSummary').value.trim()||'（我還需要用自己的話摘要科普短文。）';
+ const core=$('#coreIdea').value.trim()||'（主要概念：試著用一句話寫出全文最重要的訊息。）';
+ const detail=$('#detailIdeas').value.trim()||'（重要細節：寫下 2～3 個能支持主要概念的訊息。）';
+ const evidence=$('#evidenceIdeas').value.trim()||'（觀察證據：選出實驗表中的結果，說明它如何支持你的判斷。）';
+ const conclusion=$('#conclusion').value.trim()||'（根據我的觀察與證據，我的結論是……）';
+ const prior=$('#prior').value.trim()||'（閱讀前想法尚未記錄。）';
+ const vocab=$('#vocab').value.trim()||'（關鍵詞解釋尚未記錄。）';
+ const question=$('#question').value.trim()||'（尚未填寫探究問題。）';
+ const observer=$('#observer').value.trim();
+ const extra=$('#extraObservation').value.trim(); const next=$('#nextQuestion').value.trim();
+ $('#noteBody').innerHTML=`<div class="note-section"><h3>一、探究問題</h3><p>${escapeHTML(question)}</p>${observer?`<p>紀錄者／組別：${escapeHTML(observer)}</p>`:''}</div>
+ <div class="note-section"><h3>二、觀察紀錄</h3>${tableHTML()}${extra?`<p><strong>其他觀察：</strong>${escapeHTML(extra)}</p>`:''}</div>
+ <div class="note-section"><h3>三、科普閱讀摘要</h3><p><strong>閱讀前的想法：</strong>${escapeHTML(prior)}</p><p><strong>關鍵詞解釋：</strong>${escapeHTML(vocab)}</p><p><strong>一言摘要：</strong>${escapeHTML(summary)}</p></div>
+ <div class="note-section"><h3>四、主旨與細節組織圖</h3><p><strong>主要概念：</strong>${escapeHTML(core)}</p><p><strong>重要細節：</strong>${escapeHTML(detail)}</p></div>
+ <div class="note-section"><h3>五、以證據支持推論</h3><p><strong>我的觀察證據：</strong>${escapeHTML(evidence)}</p><p><strong>我的結論：</strong>${escapeHTML(conclusion)}</p></div>
+ ${next?`<div class="note-section"><h3>六、下一個問題</h3><p>${escapeHTML(next)}</p></div>`:''}
+ <p class="small"><strong>自我提醒：</strong>觀察是實際看見的結果；推論是根據觀察證據做出的解釋。若結果不一致，記下疑問並再次確認。</p>`;
+ saveProgress(false);
+}
+function notePlainText(){return `自然筆記｜酸鹼指示劑觀察與科普閱讀\n日期：${$('#noteDate').textContent}\n紀錄者／組別：${$('#observer').value||'未填'}\n\n一、探究問題\n${$('#question').value}\n\n二、觀察紀錄\n測試溶液｜廣用試紙｜藍色石蕊｜紅色石蕊｜初步判斷\n${rows.map(r=>`${r.sample||'未命名'}｜${colorName(r.universal)}｜${colorName(r.blue)}｜${colorName(r.red)}｜${colorName(r.inference)}`).join('\n')}\n其他觀察：${$('#extraObservation').value||'未填'}\n\n三、科普閱讀摘要\n閱讀前想法：${$('#prior').value||'未填'}\n關鍵詞解釋：${$('#vocab').value||'未填'}\n一言摘要：${$('#articleSummary').value||'未填'}\n\n四、主旨與細節組織圖\n主要概念：${$('#coreIdea').value||'未填'}\n重要細節：${$('#detailIdeas').value||'未填'}\n\n五、以證據支持推論\n觀察證據：${$('#evidenceIdeas').value||'未填'}\n我的結論：${$('#conclusion').value||'未填'}\n下一個問題：${$('#nextQuestion').value||'未填'}\n`}
+$('#refreshNote').addEventListener('click',buildNote);
+$('#printNote').addEventListener('click',()=>{buildNote();window.print()});
+$('#copyNote').addEventListener('click',async()=>{buildNote();try{await navigator.clipboard.writeText(notePlainText());$('#saveStatus').textContent='筆記文字已複製，可以貼到文件或作業。';}catch(e){fallbackCopy(notePlainText())}});
+function fallbackCopy(txt){const ta=document.createElement('textarea');ta.value=txt;document.body.appendChild(ta);ta.select();try{document.execCommand('copy');$('#saveStatus').textContent='筆記文字已複製。'}catch(e){$('#saveStatus').textContent='瀏覽器不允許自動複製，請用下載文字檔。'}ta.remove()}
+$('#downloadNote').addEventListener('click',()=>{buildNote();const blob=new Blob(['\ufeff'+notePlainText()],{type:'text/plain;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='酸鹼觀察與科普閱讀筆記.txt';a.click();URL.revokeObjectURL(url);});
+const STORE_KEY='acidBaseScienceReadingNotebook_v1';
+function saveProgress(show=true){try{const data={currentStep,nextRowId,rows,fields:{},mainIdea:$('input[name="mainIdea"]:checked')?.value||'',savedAt:new Date().toISOString()};textFields.forEach(id=>{const e=document.getElementById(id);if(e)data.fields[id]=e.value});data.fields.mainIdea=data.mainIdea;localStorage.setItem(STORE_KEY,JSON.stringify(data));$('#saveStatus').textContent=show?'進度已儲存到這台裝置的瀏覽器。':'輸入內容會暫存在這台裝置的瀏覽器中。';}catch(e){$('#saveStatus').textContent='目前瀏覽器無法暫存，建議完成後下載或列印筆記。'}}
+function loadProgress(){try{const raw=localStorage.getItem(STORE_KEY);if(!raw)return;const d=JSON.parse(raw);if(Array.isArray(d.rows)&&d.rows.length){rows.splice(0,rows.length,...d.rows);nextRowId=d.nextRowId||Math.max(...rows.map(r=>r.id))+1;}if(d.fields){Object.entries(d.fields).forEach(([id,v])=>{if(id==='mainIdea'){const e=$(`input[name="mainIdea"][value="${v}"]`);if(e)e.checked=true;return}const el=document.getElementById(id);if(el)el.value=v;});}if(d.currentStep)currentStep=1;}catch(e){console.warn('無法還原先前內容',e)}}
+$('#saveNow').addEventListener('click',()=>saveProgress(true));
+function clearAll(confirmFirst=true){if(confirmFirst&&!confirm('確定要清除這份酸鹼觀察與科普閱讀紀錄嗎？這項操作無法復原。'))return;try{localStorage.removeItem(STORE_KEY)}catch(e){}rows.splice(0,rows.length,{id:1,sample:'檸檬汁',universal:'',blue:'',red:'',inference:''},{id:2,sample:'糖水',universal:'',blue:'',red:'',inference:''},{id:3,sample:'肥皂水',universal:'',blue:'',red:'',inference:''});nextRowId=4;textFields.forEach(id=>{const e=document.getElementById(id);if(e)e.value=''});$('#question').value='不同生活溶液遇到酸鹼指示劑時，會出現什麼變化？';$$('input[name="mainIdea"]').forEach(e=>e.checked=false);$$('.feedback').forEach(e=>{e.className='feedback';e.textContent=''});$$('.choice').forEach(e=>e.classList.remove('correct','wrong'));$$('.selfcheck').forEach(e=>e.checked=false);renderRows();goStep(1);$('#saveStatus').textContent='已清除紀錄。';}
+$('#resetAll').addEventListener('click',()=>clearAll(true));$('#startOver').addEventListener('click',()=>{if(confirm('筆記已完成。要清空內容並重新開始嗎？'))clearAll(false)});
+loadProgress();renderRows();if(currentStep!==1)goStep(currentStep);
+</script>
+</body>
+</html>
